@@ -3,7 +3,7 @@ const app = express()
 const bodyParser = require('body-parser')
 const dotenv = require('dotenv')
 dotenv.config()
-const PORT = process.env.PORT || 3000
+// const PORT = process.env.PORT || 3000
 const cors =  require('cors')
 
 app.use(bodyParser.json())
@@ -41,9 +41,9 @@ app.use('/api/recruitment', recruitmentRouter)
 app.use('/api/customer', customertRouter)
 app.use('/api/contract', contractRouter)
 
-app.listen(PORT, function() {
-    console.log('Server connected.')
-})
+// app.listen(PORT, function() {
+//     console.log('Server connected.')
+// })
 
 // npm install passport --save
 // npm install passport-local --save

@@ -31,11 +31,11 @@ const mongoose = require('mongoose')
 // })
 
 // MongoDB connection
-mongoose.connect(database.mongodb.uri, {
-    useNewUrlParser: true, 
-    user: database.mongodb.username,
-    pass: database.mongodb.password
-});
+
+mongoose.connect(encodeURI(database.mongodb.uri), {
+    useNewUrlParser: true
+})
+
 mongoose.Promise = global.Promise;
 
 // On connection error

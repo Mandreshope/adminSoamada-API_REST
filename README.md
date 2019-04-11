@@ -1,0 +1,1 @@
+# adminSoamada-API_REST

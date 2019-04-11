@@ -78,7 +78,3 @@ const server = app.listen(PORT, function () {
     const port = server.address().port;
     console.log('app running on port', port);
 })
-
-// npm install passport --save
-// npm install passport-local --save
-// npm install express-jwt --save

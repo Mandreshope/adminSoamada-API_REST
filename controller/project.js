@@ -3,9 +3,10 @@ const team = require('../models/team')
 const teamDetails = require('../models/teamDetails')
 module.exports = {
     create: function (req, res) {
-        project.create(req.body).then(() => {
+        project.create(req.body).then((data) => {
             res.json({
                 success: true,
+                data: data,
                 message: 'Création de données avec succès.'
             })
         }).catch((error) => {

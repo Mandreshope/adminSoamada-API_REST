@@ -1,9 +1,10 @@
 const task = require('../models/task')
 module.exports = {
     create: function (req, res) {
-        task.create(req.body).then(() => {
+        task.create(req.body).then((data) => {
             res.json({
                 success: true,
+                data: data,
                 message: 'Création de données avec succès.'
             })
         }).catch((error) => {
@@ -74,7 +75,7 @@ module.exports = {
             })
         })
     },
-    getResponsableTask: function (req, res) {
+    getDetailsTask: function (req, res) {
         task.aggregate([
             {
                 "$lookup": {
@@ -89,7 +90,18 @@ module.exports = {
              },
             {
                "$match": { "responsableTache": { $ne: [] } }
-            }
+            },
+            {
+                "$lookup": {
+                    "from": "projets",
+                    "localField": "idProjet",
+                    "foreignField": "_id",
+                    "as": "projet"
+                }
+            },
+            {
+                "$unwind": "$projet"
+             }
          ]).then((data) => {
              res.json({
                  success: true,

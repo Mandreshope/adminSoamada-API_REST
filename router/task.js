@@ -7,7 +7,7 @@ router.get('/', taskController.read)
 router.put('/update', taskController.update)
 router.delete('/delete', taskController.delete)
 router.get('/getTask', taskController.getTask)
-router.get('/getResponsableTask', taskController.getResponsableTask)
+router.get('/getDetailsTask', taskController.getDetailsTask)
 
 
 module.exports = router

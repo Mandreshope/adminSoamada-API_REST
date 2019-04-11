@@ -1,5 +1,4 @@
 const express = require('express')
-const app = express()
 const bodyParser = require('body-parser')
 const dotenv = require('dotenv')
 dotenv.config()
@@ -18,7 +17,6 @@ app.use(function(req, res, next) {
     }).catch( err => console.log(err))
 })
 
-app.use(cors())
 
 // Route
 const mainRouter =  require('./router/main')
